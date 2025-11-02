@@ -1,49 +1,444 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Madhan Raj R | Home</title>
-  <link rel="stylesheet" href="css/style.css"/>
-  <script src="js/script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madhan Raj R | Full Stack Developer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="logo">
-      <img src="your-photo.jpg" alt="Madhan Raj R" class="profile-pic"/>
-      <div>
-        <h1>Madhan Raj R</h1>
-        <p class="subtitle">Full Stack Developer | Java | React | SQL | Node.js</p>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="images/your-photo.jpg" alt="Madhan Raj R" class="profile-pic">
+          <div class="logo-text">
+            <h1>Madhan Raj R</h1>
+            <p>Full Stack Developer | Data Analyst</p>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
       </div>
     </div>
-    <nav class="top-nav">
-      <a href="index.html" class="active">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="achievements.html">Achievements</a>
-      <a href="certificates.html">Certificates</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <aside class="sidebar">
-    <ul>
-      <li><a href="index.html">🏠 Home</a></li> 
-      <li><a href="projects.html">💼 Projects</a></li>
-      <li><a href="achievements.html">🏆 Achievements</a></li>
-      <li><a href="certificates.html">📜 Certificates</a></li>
-      <li><a href="contact.html">✉️ Contact</a></li>
-    </ul>
-  </aside>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Full Stack Developer & Data Analyst</h1>
+        <p>Building digital solutions and extracting insights from data</p>
+        <div>
+          <a href="#projects" class="btn">View My Work</a>
+          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <main class="content">
-    <section id="home">
-      <h2>Welcome!</h2>
-      <p>I'm a B.Tech AI & DS student and Full Stack Developer. Explore my portfolio to see my work and skills.</p>
-    </section>
-  </main>
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Learn more about my skills, experience, and passion for technology</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Building Digital Solutions That Matter</h3>
+          <p>I'm a B.Tech AI & DS student and Full Stack Developer with a passion for creating innovative web applications and data-driven solutions. With experience in both frontend and backend technologies, I enjoy turning complex problems into simple, beautiful designs.</p>
+          <p>My expertise extends to data analysis, where I leverage statistical methods and visualization techniques to extract meaningful insights from complex datasets.</p>
+          <div class="skills">
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Node.js</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="images/your-photo.jpg" alt="Madhan Raj R">
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <p>&copy; 2025 Madhan Raj R | All Rights Reserved</p>
+  <!-- Projects Section -->
+  <section id="projects" class="section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Projects</h2>
+        <p>Check out some of my recent work and personal projects</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image" style="background-color: #7e22ce;">
+            <i class="fas fa-gamepad"></i>
+          </div>
+          <div class="project-content">
+            <h3>Fantasy Auction Game</h3>
+            <p>Real-time bidding platform with WebSockets for fantasy sports enthusiasts.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">WebSockets</span>
+              <span class="project-tag">MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-image" style="background-color: #2563eb;">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="project-content">
+            <h3>UPI Money Bank</h3>
+            <p>Full-stack UPI simulation application with secure transactions and user management.</p>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">React</span>
+              <span class="project-tag">MySQL</span>
+              <span class="project-tag">Spring Boot</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card">
+          <div class="project-image" style="background-color: #06b6d4;">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="project-content">
+            <h3>Sales Data Analysis</h3>
+            <p>Comprehensive data analysis project with visualization and predictive insights.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">Pandas</span>
+              <span class="project-tag">Matplotlib</span>
+              <span class="project-tag">Excel</span>
+            </div>
+            <div class="project-links">
+              <a href="#" class="project-link"><i class="fab fa-github"></i> Code</a>
+              <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> View Analysis</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-title">
+        <h2>Achievements & Internships</h2>
+        <p>Professional experience and key accomplishments</p>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Appin Technologies (2023)</h3>
+          <p><strong>Full Stack Developer Intern</strong></p>
+          <p>Developed and maintained web applications using modern technologies, collaborated with cross-functional teams, and implemented responsive designs.</p>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Xortican Technologies (2024)</h3>
+          <p><strong>Full Stack Developer Intern</strong></p>
+          <p>Built scalable web applications, worked on REST APIs, database design, and participated in agile development processes.</p>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Data Analysis</h3>
+          <p><strong>Specialization</strong></p>
+          <p>Expertise in data cleaning, visualization, statistical analysis, and deriving actionable insights from complex datasets using Python and Excel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section with Photos -->
+  <section id="certificates" class="section-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>My Certificates</h2>
+        <p>Professional certifications and completed courses</p>
+      </div>
+
+      <!-- Certificate List -->
+      <div class="certificates-list">
+        <div class="certificate-item">
+          <div class="certificate-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="certificate-content">
+            <h3>Web Development</h3>
+            <p>Internshala (84%)</p>
+          </div>
+        </div>
+        
+        <div class="certificate-item">
+          <div class="certificate-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="certificate-content">
+            <h3>Java Programming</h3>
+            <p>Udemy</p>
+          </div>
+        </div>
+        
+        <div class="certificate-item">
+          <div class="certificate-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="certificate-content">
+            <h3>Git & GitHub</h3>
+            <p>Coursera</p>
+          </div>
+        </div>
+        
+        <div class="certificate-item">
+          <div class="certificate-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="certificate-content">
+            <h3>Game Development</h3>
+            <p>Udemy</p>
+          </div>
+        </div>
+        
+        <div class="certificate-item">
+          <div class="certificate-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <div class="certificate-content">
+            <h3>Excel for Data Analysis</h3>
+            <p>Udemy</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Certificate Photos Gallery -->
+      <div class="section-title" style="margin-top: 80px;">
+        <h2>Certificate Gallery</h2>
+        <p>Visual proof of my accomplishments and learning journey</p>
+      </div>
+
+      <div class="certificate-gallery">
+        <div class="gallery-item">
+          <div class="certificate-image">
+            <img src="images/certificate1.png" alt="Web Development Certificate">
+            <div class="certificate-overlay">
+              <h4>Web Development</h4>
+              <p>Internshala</p>
+              <a href="images/certificate1.png" class="view-btn" target="_blank">
+                <i class="fas fa-expand"></i> View Full Size
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="certificate-image">
+            <img src="images/certificate2.png" alt="Java Programming Certificate">
+            <div class="certificate-overlay">
+              <h4>Java Programming</h4>
+              <p>Udemy</p>
+              <a href="images/certificate2.png" class="view-btn" target="_blank">
+                <i class="fas fa-expand"></i> View Full Size
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="certificate-image">
+            <img src="images/certificate3.jpg" alt="Git & GitHub Certificate">
+            <div class="certificate-overlay">
+              <h4>Git & GitHub</h4>
+              <p>Coursera</p>
+              <a href="images/certificate3.jpg" class="view-btn" target="_blank">
+                <i class="fas fa-expand"></i> View Full Size
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="certificate-image">
+            <img src="images/certificate4.jpg" alt="Game Development Certificate">
+            <div class="certificate-overlay">
+              <h4>Game Development</h4>
+              <p>Udemy</p>
+              <a href="images/certificate4.jpg" class="view-btn" target="_blank">
+                <i class="fas fa-expand"></i> View Full Size
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="certificate-image">
+            <img src="images/certificate5.jpg" alt="Excel Certificate">
+            <div class="certificate-overlay">
+              <h4>Excel for Data Analysis</h4>
+              <p>Udemy</p>
+              <a href="images/certificate5.jpg" class="view-btn" target="_blank">
+                <i class="fas fa-expand"></i> View Full Size
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Get in touch for collaborations or just to say hello</p>
+      </div>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Email</h3>
+              <p>madhanraj@example.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Phone</h3>
+              <p>+91 98765 43210</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">
+              <h3>Location</h3>
+              <p>Chennai, India</p>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input type="email" id="email" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" class="form-control" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Madhan Raj R</h3>
+          <p>Full Stack Developer & Data Analyst specializing in creating exceptional digital experiences and data-driven solutions.</p>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <ul class="footer-links">
+            <li><i class="fas fa-envelope"></i> madhanraj@example.com</li>
+            <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+            <li><i class="fas fa-map-marker-alt"></i> Chennai, India</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 Madhan Raj R. All Rights Reserved.</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
