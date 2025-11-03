@@ -14,7 +14,71 @@ document.querySelectorAll('nav a').forEach(anchor => {
         });
       }
     }
+    // File upload enhancement
+const fileInput = document.getElementById('attachment');
+const fileLabel = document.querySelector('.file-label');
+const fileName = document.querySelector('.file-name');
+
+if (fileInput && fileLabel && fileName) {
+    fileInput.addEventListener('change', function() {
+        if (this.files && this.files.length > 0) {
+            const file = this.files[0];
+            const fileSize = (file.size / (1024 * 1024)).toFixed(2); // Convert to MB
+            
+            // Check file size (5MB limit)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File size exceeds 5MB. Please choose a smaller file.');
+                this.value = '';
+                fileName.textContent = 'Choose a file or drag it here';
+                fileLabel.classList.remove('has-file');
+                return;
+            }
+            
+            // Display file name and size
+            fileName.innerHTML = `<i class="fas fa-file"></i> ${file.name} (${fileSize} MB)`;
+            fileLabel.classList.add('has-file');
+        } else {
+            fileName.textContent = 'Choose a file or drag it here';
+            fileLabel.classList.remove('has-file');
+        }
+    });
     
+    // Drag and drop functionality
+    fileLabel.addEventListener('dragover', function(e) {
+        e.preventDefault();
+        this.style.borderColor = 'var(--color-primary, #21808d)';
+        this.style.backgroundColor = 'rgba(33, 128, 141, 0.1)';
+    });
+    
+    fileLabel.addEventListener('dragleave', function(e) {
+        e.preventDefault();
+        this.style.borderColor = '';
+        this.style.backgroundColor = '';
+    });
+    
+    fileLabel.addEventListener('drop', function(e) {
+        e.preventDefault();
+        this.style.borderColor = '';
+        this.style.backgroundColor = '';
+        
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+            fileInput.files = files;
+            fileInput.dispatchEvent(new Event('change'));
+        }
+    });
+}
+
+// Contact form submission feedback
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('.submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    });
+}
+
     // Update active nav link
     document.querySelectorAll('nav a').forEach(link => {
       link.classList.remove('active');
