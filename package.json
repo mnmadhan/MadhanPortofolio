@@ -28,6 +28,6 @@
     "dotenv": "^16.4.5",
     "express": "^4.21.2",
     "multer": "^1.4.5-lts.2",
-    "nodemailer": "^7.0.10"
+    "nodemailer": "^6.9.13"
   }
 }
