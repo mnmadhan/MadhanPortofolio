@@ -285,6 +285,19 @@
 
         <div class="gallery-item">
           <div class="certificate-image">
+            <img src="images/certificate6.png" alt="Java Programming Certificate">
+            <div class="certificate-overlay">
+              <h4>Java Programming</h4>
+              <p>Udemy</p>
+              <a href="images/certificate6.png" class="view-btn" target="_blank">
+                <i class="fas fa-expand"></i> View Full Size
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item">
+          <div class="certificate-image">
             <img src="images/certificate3.png" alt="Git & GitHub Certificate">
             <div class="certificate-overlay">
               <h4>Git & GitHub</h4>
@@ -311,11 +324,11 @@
 
         <div class="gallery-item">
           <div class="certificate-image">
-            <img src="images/certificate5.jpg" alt="Excel Certificate">
+            <img src="images/certificate5.png" alt="Excel Certificate">
             <div class="certificate-overlay">
               <h4>Excel for Data Analysis</h4>
               <p>Udemy</p>
-              <a href="images/certificate5.jpg" class="view-btn" target="_blank">
+              <a href="images/certificate5.png" class="view-btn" target="_blank">
                 <i class="fas fa-expand"></i> View Full Size
               </a>
             </div>
@@ -325,83 +338,113 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2>Contact Me</h2>
-        <p>Get in touch for collaborations or just to say hello</p>
-      </div>
-      <div class="contact-container">
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="contact-text">
-              <h3>Email</h3>
-              <p>madhanraj@example.com</p>
-            </div>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="contact-text">
-              <h3>Phone</h3>
-              <p>+91 98765 43210</p>
-            </div>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">
-              <i class="fas fa-map-marker-alt"></i>
-            </div>
-            <div class="contact-text">
-              <h3>Location</h3>
-              <p>Chennai, India</p>
-            </div>
-          </div>
-          
-          <div class="social-links">
-            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        
-        <div class="contact-form">
-          <form id="contactForm">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input type="text" id="name" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input type="email" id="email" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" class="form-control" required>
-            </div>
-            
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" class="form-control" required></textarea>
-            </div>
-            
-            <button type="submit" class="submit-btn">
-              <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-          </form>
-        </div>
-      </div>
+ <!-- Contact Section -->
+<section id="contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Me</h2>
+      <p>Get in touch for collaborations or just to say hello</p>
     </div>
-  </section>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Email</h3>
+            <p>rmadhanraj540@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Phone</h3>
+            <p>+91 99765 43924</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-text">
+            <h3>Location</h3>
+            <p>Coimbatore, India</p>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+
+   <form id="contactForm" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" id="subject" name="subject" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Your Message</label>
+    <textarea id="message" name="message" class="form-control" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="attachment">Attach a File (optional)</label>
+    <input type="file" id="attachment" name="attachment" class="form-control">
+  </div>
+
+  <button type="submit" class="submit-btn">
+    <i class="fas fa-paper-plane"></i> Send Message
+  </button>
+
+  <p id="formStatus" style="margin-top:10px;"></p>
+</form>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const status = document.getElementById("formStatus");
+  status.textContent = "Sending...";
+
+  const formData = new FormData(this);
+
+  try {
+    const response = await fetch("http://localhost:5000/send-email", {
+      method: "POST",
+      body: formData
+    });
+    const result = await response.json();
+    if (result.success) {
+      status.textContent = "✅ Message sent successfully!";
+      this.reset();
+    } else {
+      status.textContent = "❌ Failed to send message.";
+    }
+  } catch (error) {
+    console.error(error);
+    status.textContent = "❌ Error sending message.";
+  }
+});
+</script>
 
   <!-- Footer -->
   <footer>
@@ -426,9 +469,9 @@
         <div class="footer-column">
           <h3>Contact Info</h3>
           <ul class="footer-links">
-            <li><i class="fas fa-envelope"></i> madhanraj@example.com</li>
-            <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-            <li><i class="fas fa-map-marker-alt"></i> Chennai, India</li>
+            <li><i class="fas fa-envelope"></i> rmadhanraj540@gmail.com</li>
+            <li><i class="fas fa-phone"></i> +91 99765 43924</li>
+            <li><i class="fas fa-map-marker-alt"></i> Coimbatore, India</li>
           </ul>
         </div>
       </div>
