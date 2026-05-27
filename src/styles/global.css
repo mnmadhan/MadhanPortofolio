@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ─── CSS Variables ─────────────────────────────────────── */
+:root {
+  --bg-primary:       #080A14;
+  --bg-secondary:     #0D1120;
+  --bg-card:          rgba(15, 18, 30, 0.75);
+  --bg-card-hover:    rgba(20, 24, 42, 0.9);
+
+  --accent-primary:   #6366F1;
+  --accent-hover:     #4F46E5;
+  --accent-blue:      #3B82F6;
+  --accent-violet:    #8B5CF6;
+  --accent-teal:      #10B981;
+  --accent-amber:     #F59E0B;
+  --accent-red:       #EF4444;
+
+  --text-primary:     #F1F5F9;
+  --text-secondary:   #94A3B8;
+  --text-muted:       #64748B;
+  --text-faint:       #334155;
+
+  --border-subtle:    rgba(99, 102, 241, 0.12);
+  --border-mid:       rgba(99, 102, 241, 0.3);
+  --border-bright:    rgba(99, 102, 241, 0.6);
+
+  --font-display:     'Playfair Display', serif;
+  --font-mono:        'Space Mono', monospace;
+  --font-body:        'DM Sans', sans-serif;
+
+  --radius-sm:        6px;
+  --radius-md:        12px;
+  --radius-lg:        20px;
+
+  --shadow-glow:      0 0 40px rgba(99, 102, 241, 0.25);
+  --shadow-card:      0 8px 40px rgba(0, 0, 0, 0.4);
+  --shadow-hover:     0 20px 60px rgba(99, 102, 241, 0.2);
+
+  --transition-fast:  0.2s ease;
+  --transition-mid:   0.35s ease;
+  --transition-slow:  0.6s ease;
+}
+
+/* ─── Reset & Base ──────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 2px;
+}
+
+/* ─── Keyframes ─────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* ─── Utility classes ───────────────────────────────────── */
+.fade-up {
+  animation: fadeUp 0.7s ease forwards;
+  opacity: 0;
+}
+
+.section-pad {
+  padding: 120px 8vw;
+  position: relative;
+}
+
+.section-center {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(99,102,241,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.035) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
