@@ -1,94 +1,84 @@
-# Madhan Raj R — Portfolio (Vite)
+# Madhan Raj R — Portfolio v2
 
-## 📁 Project Structure
+Clean, human-driven editorial design. Warm dark palette, serif + mono typography.
 
-```
-portfolio/
-├── index.html                  ← Vite entry (root level, NOT in public/)
-├── vite.config.js
-├── package.json
-└── src/
-    ├── main.jsx                ← Vite entry point
-    ├── App.jsx
-    ├── components/
-    │   ├── Navbar.jsx
-    │   ├── Hero.jsx
-    │   ├── Skills.jsx
-    │   ├── Experience.jsx
-    │   ├── Projects.jsx
-    │   ├── Certifications.jsx
-    │   ├── Contact.jsx
-    │   └── SectionHeader.jsx
-    ├── styles/
-    │   ├── global.css
-    │   ├── Navbar.css
-    │   ├── Hero.css
-    │   ├── Skills.css
-    │   ├── Experience.css
-    │   ├── Projects.css
-    │   ├── ContactCert.css
-    │   └── SectionUI.css
-    ├── hooks/
-    │   └── useInView.js
-    └── data/
-        └── portfolioData.js    ← Edit all your content here
-```
-
-## 🚀 Run with Vite (3 steps)
+## 🚀 Quick Start
 
 ```bash
-# Step 1 — Extract the zip and go into folder
-cd portfolio
-
-# Step 2 — Install dependencies
 npm install
-
-# Step 3 — Start dev server
 npm run dev
+# → http://localhost:5173
 ```
 
-Then open → http://localhost:5173
+## 📧 Enable the Contact Form (EmailJS — Free)
 
-## 🏗️ Build for Production
+1. Go to https://www.emailjs.com and create a free account
+2. Add an **Email Service** (Gmail) → get `SERVICE_ID`
+3. Create an **Email Template** → get `TEMPLATE_ID`
+   - Template variables to use:
+     - `{{from_name}}` — sender's name
+     - `{{from_email}}` — sender's email
+     - `{{from_phone}}` — sender's phone
+     - `{{reason}}` — reason for contact
+     - `{{subject}}` — subject
+     - `{{message}}` — message body
+4. Go to **Account → General** → copy your `PUBLIC_KEY`
+5. Open `src/data/portfolioData.js` and fill in:
 
-```bash
-npm run build
-# Output goes to dist/ folder
+```js
+export const EMAILJS = {
+  serviceId:  "service_xxxxxxx",
+  templateId: "template_xxxxxxx",
+  publicKey:  "xxxxxxxxxxxxxxxxxxxx",
+};
 ```
 
-## 🌐 Deploy Free
+That's it — the form will now send emails directly to your Gmail, no backend needed.
 
-### Vercel (easiest)
-```bash
-npm i -g vercel
-vercel
+## 📁 Structure
+
 ```
-
-### Netlify
-```bash
-npm run build
-# Drag & drop the dist/ folder to netlify.com/drop
+src/
+├── components/
+│   ├── Navbar.jsx
+│   ├── Hero.jsx          ← shows your-photo.jpg
+│   ├── Skills.jsx
+│   ├── Experience.jsx
+│   ├── Projects.jsx
+│   ├── Certifications.jsx ← shows certificate1–6.png
+│   └── Contact.jsx        ← EmailJS form
+├── styles/
+│   ├── global.css         ← CSS variables, theme (change --gold to rebrand)
+│   ├── Navbar.css
+│   ├── Hero.css
+│   ├── Skills.css
+│   ├── Experience.css
+│   ├── Projects.css
+│   ├── Certifications.css
+│   └── Contact.css
+├── data/
+│   └── portfolioData.js   ← ALL content lives here
+├── hooks/
+│   └── useInView.js
+├── App.jsx
+└── main.jsx
+public/
+└── images/
+    ├── your-photo.jpg
+    ├── certificate1.png … certificate6.png
 ```
-
-### GitHub Pages
-```bash
-npm install --save-dev gh-pages
-# Add to package.json scripts: "deploy": "gh-pages -d dist"
-npm run build && npm run deploy
-```
-
-## ✏️ Update Your Content
-
-All content is in ONE file → `src/data/portfolioData.js`
-
-- Add a new project → add to `PROJECTS` array
-- Add a new cert → add to `CERTIFICATIONS` array
-- Update contact → edit `CONTACT` object
 
 ## 🎨 Change Theme Color
 
-In `src/styles/global.css`, change:
+In `src/styles/global.css`:
 ```css
---accent-primary: #6366F1;  /* Change this to any color */
+--gold: #C9A84C;   /* ← change this to rebrand everything */
 ```
-This updates the entire portfolio instantly.
+
+## 🌐 Deploy
+
+```bash
+npm run build        # → dist/
+# Drag dist/ to netlify.com/drop  OR
+npx vercel           # Vercel auto-detects Vite
+```

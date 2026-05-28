@@ -1,29 +1,31 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * useInView — fires once when the element enters the viewport.
- * @param {number} threshold  - 0 to 1, fraction of element visible before firing
+ * useInView — triggers once when element enters viewport.
+ * Fixed: uses rootMargin instead of threshold alone so staggered
+ * children animate individually, not all at once.
  */
-export function useInView(threshold = 0.15) {
-  const ref = useRef(null);
+export function useInView(threshold = 0.1, rootMargin = "0px 0px -60px 0px") {
+  const ref    = useRef(null);
   const [inView, setInView] = useState(false);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setInView(true);
-          observer.disconnect(); // only fire once
+          observer.disconnect();
         }
       },
-      { threshold }
+      { threshold, rootMargin }
     );
 
-    const el = ref.current;
-    if (el) observer.observe(el);
-
+    observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, rootMargin]);
 
   return [ref, inView];
 }

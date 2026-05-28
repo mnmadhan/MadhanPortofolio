@@ -1,79 +1,94 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { NAV_LINKS } from "../data/portfolioData";
 import "../styles/Navbar.css";
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [active,   setActive]     = useState("about");
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [active,   setActive]   = useState("about");
+  const [open,     setOpen]     = useState(false);
 
-  /* ── Scroll: glass effect + active section ── */
+  const go = useCallback((id) => {
+    document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
+  }, []);
+
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      // Determine active section
-      const sections = NAV_LINKS.map((l) => l.toLowerCase());
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sections[i]);
-        if (el && window.scrollY >= el.offsetTop - 120) {
-          setActive(sections[i]);
-          break;
-        }
+      setScrolled(window.scrollY > 60);
+      const ids = NAV_LINKS.map(l => l.toLowerCase());
+      for (let i = ids.length - 1; i >= 0; i--) {
+        const el = document.getElementById(ids[i]);
+        if (el && window.scrollY >= el.offsetTop - 130) { setActive(ids[i]); break; }
       }
     };
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNav = (link) => {
-    const el = document.getElementById(link.toLowerCase());
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false);
-  };
+  // Close drawer on outside click
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e) => {
+      if (!e.target.closest(".navbar__drawer") && !e.target.closest(".navbar__ham")) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, [open]);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handler = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, []);
 
   return (
     <>
-      <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-        {/* Logo */}
-        <div className="navbar__logo" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          MR<span>_DEV</span>
-        </div>
+      <nav className={`navbar ${scrolled ? "scrolled" : ""}`} role="navigation" aria-label="Main navigation">
+        <button
+          className="navbar__logo"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label="Go to top"
+        >
+          Madhan<span>.</span>
+        </button>
 
-        {/* Desktop links */}
-        <ul className="navbar__links">
-          {NAV_LINKS.map((link) => (
-            <li key={link}>
-              <span
-                className={`navbar__link ${active === link.toLowerCase() ? "active" : ""}`}
-                onClick={() => handleNav(link)}
+        <ul className="navbar__links" role="list">
+          {NAV_LINKS.map(l => (
+            <li key={l}>
+              <button
+                className={`navbar__link ${active === l.toLowerCase() ? "active" : ""}`}
+                onClick={() => go(l)}
+                aria-current={active === l.toLowerCase() ? "true" : undefined}
               >
-                {link}
-              </span>
+                {l}
+              </button>
             </li>
           ))}
         </ul>
 
-        {/* Hamburger */}
-        <div
-          className={`navbar__hamburger ${menuOpen ? "open" : ""}`}
-          onClick={() => setMenuOpen((p) => !p)}
-          aria-label="Toggle menu"
+        <button
+          className={`navbar__ham ${open ? "open" : ""}`}
+          onClick={() => setOpen(p => !p)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-drawer"
         >
-          <span />
-          <span />
-          <span />
-        </div>
+          <span aria-hidden="true" /><span aria-hidden="true" /><span aria-hidden="true" />
+        </button>
       </nav>
 
-      {/* Mobile menu */}
-      <ul className={`navbar__mobile ${menuOpen ? "open" : ""}`}>
-        {NAV_LINKS.map((link) => (
-          <li key={link}>
-            <span className="navbar__mobile-link" onClick={() => handleNav(link)}>
-              {link}
-            </span>
+      <ul
+        id="mobile-drawer"
+        className={`navbar__drawer ${open ? "open" : ""}`}
+        role="list"
+        aria-hidden={!open}
+      >
+        {NAV_LINKS.map(l => (
+          <li key={l}>
+            <button className="navbar__drawer-link" onClick={() => go(l)}>{l}</button>
           </li>
         ))}
       </ul>
