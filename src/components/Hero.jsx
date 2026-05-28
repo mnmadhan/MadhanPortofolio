@@ -82,7 +82,7 @@ export default function Hero() {
       <div className="hero__right" aria-hidden="true">
         <div className="hero__photo-frame">
           <img
-            src="/images/your-photo.jpg"
+            src="/images/My-photo.jpg"
             alt="Madhan Raj R, Full Stack & DevOps Developer"
             className="hero__photo"
             width="400"
