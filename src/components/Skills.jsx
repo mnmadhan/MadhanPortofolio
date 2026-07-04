@@ -8,18 +8,18 @@ export default function Skills() {
   return (
     <section id="skills" className="skills section" aria-labelledby="skills-title">
       <div className="section__head">
-        <p className="section__eyebrow" aria-hidden="true">02 — Expertise</p>
-        <h2 className="section__title" id="skills-title">Technical Skills</h2>
+        <p className="section__label">What I work with</p>
+        <h2 className="section__title" id="skills-title">Skills</h2>
       </div>
       <div className="skills__grid" ref={ref}>
         {Object.entries(SKILLS).map(([cat, items], i) => (
           <div
             key={cat}
             className={`skill-cell reveal ${inView ? "in" : ""}`}
-            style={{ transitionDelay: `${i * 0.07}s` }}
+            style={{ transitionDelay: `${i * 0.05}s` }}
           >
-            <div className="skill-cell__cat" aria-label={`${cat} skills`}>{cat}</div>
-            <ul className="skill-cell__items" aria-label={`${cat} technologies`}>
+            <div className="skill-cell__cat">{cat}</div>
+            <ul className="skill-cell__items">
               {items.map(item => (
                 <li key={item} className="skill-cell__item">{item}</li>
               ))}

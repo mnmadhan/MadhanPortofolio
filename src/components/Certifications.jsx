@@ -3,21 +3,16 @@ import { useInView } from "../hooks/useInView";
 import { CERTIFICATIONS } from "../data/portfolioData";
 import "../styles/Certifications.css";
 
-function CertImage({ src, fallbackIcon, name }) {
-  const [loaded,  setLoaded]  = useState(false);
+function CertImage({ src, name }) {
+  const [loaded, setLoaded] = useState(false);
   const [errored, setErrored] = useState(!src);
 
   if (errored || !src) {
-    return (
-      <div className="cert-card__icon-fallback" aria-hidden="true">
-        {fallbackIcon}
-      </div>
-    );
+    return <div className="cert-card__icon-fallback" aria-hidden="true">{name.slice(0,2).toUpperCase()}</div>;
   }
 
   return (
     <>
-      {/* Skeleton shown while loading */}
       {!loaded && <div className="cert-card__skeleton" aria-hidden="true" />}
       <img
         src={src}
@@ -27,8 +22,8 @@ function CertImage({ src, fallbackIcon, name }) {
         onLoad={() => setLoaded(true)}
         onError={() => setErrored(true)}
         loading="lazy"
-        width="52"
-        height="52"
+        width="48"
+        height="48"
       />
     </>
   );
@@ -40,17 +35,17 @@ export default function Certifications() {
   return (
     <section id="certifications" className="certs section" aria-labelledby="certs-title">
       <div className="section__head">
-        <p className="section__eyebrow" aria-hidden="true">05 — Credentials</p>
+        <p className="section__label">Courses &amp; certifications</p>
         <h2 className="section__title" id="certs-title">Certifications</h2>
       </div>
-      <ul className="certs__grid" ref={ref} aria-label="Certifications list">
+      <ul className="certs__grid" ref={ref}>
         {CERTIFICATIONS.map((c, i) => (
           <li
             key={c.name}
             className={`cert-card reveal ${inView ? "in" : ""}`}
-            style={{ transitionDelay: `${i * 0.06}s` }}
+            style={{ transitionDelay: `${i * 0.04}s` }}
           >
-            <CertImage src={c.img} fallbackIcon={c.icon} name={c.name} />
+            <CertImage src={c.img} name={c.name} />
             <div>
               <p className="cert-card__name">{c.name}</p>
               <p className="cert-card__issuer">{c.issuer}</p>

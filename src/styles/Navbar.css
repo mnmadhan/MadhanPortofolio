@@ -1,41 +1,38 @@
 .navbar {
   position: fixed; top:0; left:0; right:0; z-index:999;
   display:flex; justify-content:space-between; align-items:center;
-  padding: 0 7vw; height: 70px;
-  transition: background 0.4s, border-color 0.4s;
+  padding: 0 7vw; height: 64px;
+  transition: background 0.25s, border-color 0.25s;
+  border-bottom: 1px solid transparent;
 }
 .navbar.scrolled {
-  background: rgba(12,12,14,0.92);
-  backdrop-filter: blur(18px);
+  background: rgba(238,239,233,0.92);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
 .navbar__logo {
-  font-family: var(--ff-serif);
-  font-size: 22px;
+  font-family: var(--ff-display);
+  font-size: 21px;
   font-weight: 600;
-  font-style: italic;
   color: var(--ink);
-  letter-spacing: 0.5px;
   cursor:pointer;
 }
-.navbar__logo span { color: var(--gold); }
+.navbar__logo span { color: var(--rust); }
 
-.navbar__links { display:flex; align-items:center; gap:36px; }
+.navbar__links { display:flex; align-items:center; gap:32px; }
 
 .navbar__link {
-  font-family: var(--ff-mono);
-  font-size: 11px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: var(--ff-sans);
+  font-size: 14px;
   color: var(--ink-3);
   cursor:pointer;
   position:relative;
   transition: color 0.2s;
 }
 .navbar__link::after {
-  content:''; position:absolute; bottom:-3px; left:0;
-  width:0; height:1px; background:var(--gold);
-  transition: width 0.25s var(--ease-out);
+  content:''; position:absolute; bottom:-4px; left:0;
+  width:0; height:1px; background:var(--pine);
+  transition: width 0.2s var(--ease-out);
 }
 .navbar__link:hover, .navbar__link.active { color: var(--ink); }
 .navbar__link:hover::after, .navbar__link.active::after { width:100%; }
@@ -49,19 +46,18 @@
 
 /* Mobile drawer */
 .navbar__drawer {
-  display:none; position:fixed; top:70px; left:0; right:0;
-  background:rgba(12,12,14,0.97); backdrop-filter:blur(20px);
+  display:none; position:fixed; top:64px; left:0; right:0;
+  background:var(--bg-raised);
   flex-direction:column; gap:0;
   border-bottom: 1px solid var(--border);
 }
 .navbar__drawer.open { display:flex; }
 .navbar__drawer-link {
-  font-family:var(--ff-mono); font-size:12px; letter-spacing:2px;
-  text-transform:uppercase; color:var(--ink-3);
-  padding:18px 7vw; border-bottom:1px solid var(--border);
+  font-family:var(--ff-sans); font-size:15px; color:var(--ink-2);
+  padding:16px 7vw; border-bottom:1px solid var(--border);
   cursor:pointer; transition:color 0.2s;
 }
-.navbar__drawer-link:hover { color:var(--gold); }
+.navbar__drawer-link:hover { color:var(--pine); }
 
 @media(max-width:768px){
   .navbar__links{display:none;}

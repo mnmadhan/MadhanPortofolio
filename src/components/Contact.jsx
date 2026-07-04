@@ -4,7 +4,6 @@ import { useInView } from "../hooks/useInView";
 import { CONTACT, EMAILJS } from "../data/portfolioData";
 import "../styles/Contact.css";
 
-/* Simple client-side validation */
 function validate(form) {
   const errors = {};
   if (!form.from_name?.trim())   errors.from_name  = "Name is required";
@@ -81,45 +80,40 @@ export default function Contact() {
       <section id="contact" className="contact section" aria-labelledby="contact-title">
         <div className={`contact__grid reveal ${inView ? "in" : ""}`} ref={ref}>
 
-          {/* ── LEFT ── */}
           <div>
-            <p className="contact__info-label" aria-hidden="true">06 — Contact</p>
-            <h2 className="contact__info-title" id="contact-title">
-              Let's Work<br />Together
-            </h2>
+            <p className="section__label">Get in touch</p>
+            <h2 className="contact__info-title" id="contact-title">Let's talk</h2>
             <p className="contact__info-desc">
-              Actively looking for full-time roles in Full Stack or DevOps.
-              Have an opening, a project, or just want to say hello? Drop me a message
-              and I'll reply within 24 hours.
+              I'm looking for full-time full-stack or backend roles, ideally in
+              Bengaluru. If you've got an opening, or just want to ask about
+              something I built, send a note — I read these myself and usually
+              reply within a day.
             </p>
 
-            <address className="contact__links" aria-label="Contact details">
+            <address className="contact__links">
               {[
-                { icon:"✉️", label: CONTACT.email,     href:`mailto:${CONTACT.email}`,  ariaLabel:"Send email" },
-                { icon:"📞", label: CONTACT.phone,     href:`tel:${CONTACT.phone}`,     ariaLabel:"Call phone" },
-                { icon:"🔗", label:"LinkedIn Profile", href: CONTACT.linkedin,           ariaLabel:"LinkedIn profile (opens in new tab)" },
-                { icon:"🐙", label:"GitHub Profile",   href: CONTACT.github,             ariaLabel:"GitHub profile (opens in new tab)" },
-                { icon:"📍", label: CONTACT.location,  href: null,                       ariaLabel:"Location" },
-              ].map(({ icon, label, href, ariaLabel }) => (
+                { label:"Email",    value: CONTACT.email,     href:`mailto:${CONTACT.email}` },
+                { label:"Phone",    value: CONTACT.phone,     href:`tel:${CONTACT.phone}` },
+                { label:"LinkedIn", value:"linkedin.com/in/madhan-raj-r", href: CONTACT.linkedin },
+                { label:"GitHub",   value:"github.com/mnmadhan", href: CONTACT.github },
+              ].map(({ label, value, href }) => (
                 <a
                   key={label}
                   className="contact__link"
                   href={href || undefined}
                   target={href?.startsWith("http") ? "_blank" : undefined}
                   rel="noopener noreferrer"
-                  aria-label={ariaLabel}
                   style={{ cursor: href ? "pointer" : "default" }}
                 >
-                  <span className="contact__link-icon" aria-hidden="true">{icon}</span>
-                  <span>{label}</span>
+                  <span className="contact__link-label mono">{label}</span>
+                  <span>{value}</span>
                 </a>
               ))}
             </address>
           </div>
 
-          {/* ── RIGHT — Form ── */}
           <div className="contact__form" role="region" aria-label="Contact form">
-            <p className="form__title">Send me a message</p>
+            <p className="form__title">Send a message</p>
 
             <form ref={formRef} onSubmit={handleSubmit} noValidate aria-label="Contact form">
               <div className="form__row">
@@ -195,24 +189,21 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="btn btn-gold form__submit"
+                className="btn btn-primary form__submit"
                 disabled={status === "sending"}
                 aria-busy={status === "sending"}
               >
-                {status === "sending"
-                  ? <><span className="form__spinner" aria-hidden="true" /> Sending…</>
-                  : "Send Message →"
-                }
+                {status === "sending" ? "Sending…" : "Send message"}
               </button>
 
               {status === "success" && (
                 <p className="form__status form__status--success" role="status">
-                  ✓ Message sent! I'll reply within 24 hours.
+                  Sent — I'll reply within a day.
                 </p>
               )}
               {status === "error" && (
                 <p className="form__status form__status--error" role="alert">
-                  ✗ Something went wrong. Email me directly at{" "}
+                  Something went wrong. Email me directly at{" "}
                   <a href={`mailto:${CONTACT.email}`} style={{ color: "inherit", textDecoration: "underline" }}>
                     {CONTACT.email}
                   </a>
@@ -224,8 +215,8 @@ export default function Contact() {
       </section>
 
       <footer className="footer">
-        <span className="footer__left">Madhan Raj R · Portfolio 2026</span>
-        <span className="footer__right">Built with <span aria-hidden="true">♥</span> using React & Vite</span>
+        <span className="footer__left">Madhan Raj R — {new Date().getFullYear()}</span>
+        <span className="footer__right">Built with React &amp; Vite</span>
       </footer>
     </>
   );
